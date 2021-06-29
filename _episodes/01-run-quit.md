@@ -71,8 +71,8 @@ $ python
 
 To start Python from Anaconda Navigator you must first [start Anaconda Navigator (click for detailed instructions on macOS, Windows, and Linux)](https://docs.anaconda.com/anaconda/navigator/getting-started/#starting-navigator). You can search for Anaconda Navigator via Spotlight on macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and executing the `anaconda-navigator` executable from the command line.
 
-After you have launched Anaconda Navigator, click the `Launch` button under JupyterLab. You may need
-to scroll down to find it.
+After you have launched Anaconda Navigator, click the `Launch` button
+under "CMD.exe prompt". You may need to scroll down to find it.
 
 Here is a screenshot of an Anaconda Navigator page similar to the one that should open on either macOS
 or Windows.
