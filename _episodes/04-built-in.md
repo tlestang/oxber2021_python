@@ -1,7 +1,7 @@
 ---
 title: "Built-in Functions and Help"
-teaching: 15
-exercises: 10
+teaching: 7
+exercises: 0
 questions:
 - "How can I use built-in functions?"
 - "How can I find out what they do?"
@@ -138,7 +138,7 @@ round(3.712, 1)
 
 ## Functions attached to objects are called methods
 
-* Functions take another form that will be common in the pandas episodes.
+* Variables point to objects some behavior (functions) attached to them.
 * Methods have parentheses like functions, but come after the variable.
 * Some methods are used for internal Python operations, and are marked with double underlines.
 
@@ -202,19 +202,6 @@ round(number, ndigits=None)
 *   Won't even try to run the program if it can't be parsed.
 
 ~~~
-# Forgot to close the quote marks around the string.
-name = 'Feng
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-56-f42768451d55>", line 2
-    name = 'Feng
-                ^
-SyntaxError: EOL while scanning string literal
-~~~
-{: .error}
-
-~~~
 # An extra '=' in the assignment.
 age = = 52
 ~~~
@@ -226,29 +213,6 @@ age = = 52
 SyntaxError: invalid syntax
 ~~~
 {: .error}
-
-*   Look more closely at the error message:
-
-~~~
-print("hello world"
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-6-d1cc229bf815>", line 1
-    print ("hello world"
-                        ^
-SyntaxError: unexpected EOF while parsing
-~~~
-{: .error}
-
-*   The message indicates a problem on first line of the input ("line 1").
-    *   In this case the "ipython-input" section of the file name tells us that
-        we are working with input into IPython,
-        the Python interpreter used by the Jupyter Notebook.
-*   The `-6-` part of the filename indicates that
-    the error occurred in cell 6 of our Notebook.
-*   Next is the problematic line of code,
-    indicating the problem with a `^` pointer.
 
 ## <a name='runtime-error'></a> Python reports a runtime error when something goes wrong while a program is executing.
 
