@@ -451,27 +451,6 @@ first is 2 and second is 5
     creates a new value, and assigns it to `second`.
 *   After that, `second` does not remember where it came from.
 
-> ## Automatic Type Conversion
->
-> What type of value is 3.25 + 4?
->
-> > ## Solution
-> >
-> > It is a float:
-> > integers are automatically converted to floats as necessary.
-> >
-> > ~~~
-> > result = 3.25 + 4
-> > print(result, 'is', type(result))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > 7.25 is <class 'float'>
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
 > ## Choose a Type
 >
 > What type of value (integer, floating point number, or character string)
