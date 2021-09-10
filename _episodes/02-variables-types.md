@@ -224,25 +224,6 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 >{: .solution}
 {: .challenge}
 
-> ## Slicing practice
->
-> What does the following program print?
->
-> ~~~
-> atom_name = 'carbon'
-> print('atom_name[1:3] is:', atom_name[1:3])
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> >
-> > ~~~
-> > atom_name[1:3] is: ar
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
 > ## Slicing concepts
 >
 > 1.  What does `thing[low:high]` do?
