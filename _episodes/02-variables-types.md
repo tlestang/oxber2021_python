@@ -1,7 +1,7 @@
 ---
 title: "Variables and Types"
 teaching: 10
-exercises: 10
+exercises: 5
 questions:
 - "How can I store data in programs?"
 - "What kinds of data do programs store?"
@@ -11,11 +11,9 @@ objectives:
 - "Correctly trace value changes in programs that use scalar assignment."
 - "Explain key differences between integers and floating point numbers."
 - "Explain key differences between numbers and character strings."
-- "Use built-in functions to convert between integers, floating point numbers, and strings."
 keypoints:
 - "Use variables to store values."
 - "Use `print` to display values."
-- "Variables persist between cells."
 - "Variables must be created before they are used."
 - "Variables can be used in calculations."
 - "Use an index to get a single character from a string."
@@ -26,8 +24,6 @@ keypoints:
 - "Every value has a type."
 - "Use the built-in function `type` to find the type of a value."
 - "Types control what operations can be done on values."
-- "Strings can be added and multiplied."
-- "Strings have a length (but numbers don't)."
 - "Must convert numbers to strings or vice versa when operating on them."
 - "Can mix integers and floats freely in operations."
 - "Variables only change value when something is assigned to them."
