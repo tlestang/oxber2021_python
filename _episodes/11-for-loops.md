@@ -1,13 +1,15 @@
 ---
 title: "For Loops"
-teaching: 10
-exercises: 15
+teaching: 7
+exercises: 3
 questions:
-- "How can I make a program do many things?"
+- "How can I make a program repeat instructions?"
+- "How can programs do different things for different data?"
 objectives:
 - "Explain what for loops are normally used for."
 - "Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."
-- "Write for loops that use the Accumulator pattern to aggregate values."
+- "Write simple for loops, e.g. the aggregate values.
+- "Correctly write programs that use if and else statements and simple logial expressions."
 keypoints:
 - "A *for loop* executes commands once for each value in a collection."
 - "A `for` loop is made up of a collection, a loop variable, and a body."
@@ -16,7 +18,10 @@ keypoints:
 - "Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable)."
 - "The body of a loop can contain many statements."
 - "Use `range` to iterate over a sequence of numbers."
-- "The Accumulator pattern turns many values into one."
+- "Use `if` statements to control whether or not a block of code is executed."
+- "Use `else` to execute a block of code when an `if` condition is *not* true."
+- "Use `elif` to specify additional tests."
+- "Conditions are tested once, in order."
 ---
 ## A *for loop* executes commands once for each value in a collection.
 
@@ -212,4 +217,243 @@ a range is not a list: range(0, 3)
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
+
+## Use `if` statements to control whether or not a block of code is executed.
+
+*   An `if` statement (more properly called a *conditional* statement)
+    controls whether some block of code is executed or not.
+*   Structure is similar to a `for` statement:
+    *   First line opens with `if` and ends with a colon
+    *   Body containing one or more statements is indented (usually by 4 spaces)
+
+~~~
+mass = 3.54
+if mass > 3.0:
+    print(mass, 'is large')
+
+mass = 2.07
+if mass > 3.0:
+    print (mass, 'is large')
+~~~
+{: .language-python}
+~~~
+3.54 is large
+~~~
+{: .output}
+
+## Conditionals are often used inside loops.
+
+*   Not much point using a conditional when we know the value (as above).
+*   But useful when we have a collection to process.
+
+~~~
+masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m > 3.0:
+        print(m, 'is large')
+~~~
+{: .language-python}
+~~~
+3.54 is large
+9.22 is large
+~~~
+{: .output}
+
+## Use `else` to execute a block of code when an `if` condition is *not* true.
+
+*   `else` can be used following an `if`.
+*   Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
+
+~~~
+masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m > 3.0:
+        print(m, 'is large')
+    else:
+        print(m, 'is small')
+~~~
+{: .language-python}
+~~~
+3.54 is large
+2.07 is small
+9.22 is large
+1.86 is small
+1.71 is small
+~~~
+{: .output}
+
+## Use `elif` to specify additional tests.
+
+*   May want to provide several alternative choices, each with its own test.
+*   Use `elif` (short for "else if") and a condition to specify these.
+*   Always associated with an `if`.
+*   Must come before the `else` (which is the "catch all").
+
+~~~
+masses = [3.54, 2.07, 9.22, 1.86, 1.71]
+for m in masses:
+    if m > 9.0:
+        print(m, 'is HUGE')
+    elif m > 3.0:
+        print(m, 'is large')
+    else:
+        print(m, 'is small')
+~~~
+{: .language-python}
+~~~
+3.54 is large
+2.07 is small
+9.22 is HUGE
+1.86 is small
+1.71 is small
+~~~
+{: .output}
+
+## Conditions are tested once, in order.
+
+*   Python steps through the branches of the conditional in order, testing each in turn.
+*   So ordering matters.
+
+~~~
+grade = 85
+if grade >= 70:
+    print('grade is C')
+elif grade >= 80:
+    print('grade is B')
+elif grade >= 90:
+    print('grade is A')
+~~~
+{: .language-python}
+~~~
+grade is C
+~~~
+{: .output}
+
+*   Does *not* automatically go back and re-evaluate if values change.
+
+~~~
+velocity = 10.0
+if velocity > 20.0:
+    print('moving too fast')
+else:
+    print('adjusting velocity')
+    velocity = 50.0
+~~~
+{: .language-python}
+~~~
+adjusting velocity
+~~~
+{: .output}
+
+*   Often use conditionals in a loop to "evolve" the values of variables.
+
+~~~
+velocity = 10.0
+for i in range(5): # execute the loop 5 times
+    print(i, ':', velocity)
+    if velocity > 20.0:
+        print('moving too fast')
+        velocity = velocity - 5.0
+    else:
+        print('moving too slow')
+        velocity = velocity + 10.0
+print('final velocity:', velocity)
+~~~
+{: .language-python}
+~~~
+0 : 10.0
+moving too slow
+1 : 20.0
+moving too slow
+2 : 30.0
+moving too fast
+3 : 25.0
+moving too fast
+4 : 20.0
+moving too slow
+final velocity: 30.0
+~~~
+{: .output}
+
+> ## Compound Relations Using `and`, `or`, and Parentheses
+>
+> Often, you want some combination of things to be true.  You can combine
+> relations within a conditional using `and` and `or`.  Continuing the example
+> above, suppose you have
+>
+> ~~~
+> mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
+> velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
+>
+> i = 0
+> for i in range(5):
+>     if mass[i] > 5 and velocity[i] > 20:
+>         print("Fast heavy object.  Duck!")
+>     elif mass[i] > 2 and mass[i] <= 5 and velocity[i] <= 20:
+>         print("Normal traffic")
+>     elif mass[i] <= 2 and velocity[i] <= 20:
+>         print("Slow light object.  Ignore it")
+>     else:
+>         print("Whoa!  Something is up with the data.  Check it")
+> ~~~
+> {: .language-python}
+>
+> Just like with arithmetic, you can and should use parentheses whenever there
+> is possible ambiguity.  A good general rule is to *always* use parentheses
+> when mixing `and` and `or` in the same condition.  That is, instead of:
+>
+> ~~~
+> if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
+> ~~~
+> {: .language-python}
+>
+> write one of these:
+>
+> ~~~
+> if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
+> if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
+> ~~~
+> {: .language-python}
+>
+> so it is perfectly clear to a reader (and to Python) what you really mean.
+{: .callout}
+
+> ## Trimming Values
+>
+> Fill in the blanks so that this program creates a new list
+> containing zeroes where the original list's values were negative
+> and ones where the original list's values were positive.
+>
+> ~~~
+> original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+> result = ____
+> for value in original:
+>     if ____:
+>         result.append(0)
+>     else:
+>         ____
+> print(result)
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> [0, 1, 1, 1, 0, 1]
+> ~~~
+> {: .output}
+> > ## Solution
+> >
+> > ~~~
+> > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+> > result = []
+> > for value in original:
+> >     if value < 0.0:
+> >         result.append(0)
+> >     else:
+> >         result.append(1)
+> > print(result)
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 
