@@ -14,16 +14,6 @@ keypoints:
 - "Arguments in call are matched to parameters in definition."
 - "Functions may return a result to their caller using `return`."
 ---
-## Break programs down into functions to make them easier to understand.
-
-*   Human beings can only keep a few items in working memory at a time.
-*   Understand larger/more complicated ideas by understanding and combining pieces.
-    *   Components in a machine.
-    *   Lemmas when proving theorems.
-*   Functions serve the same purpose in programs.
-    *   *Encapsulate* complexity so that we can treat it as a single "thing".
-*   Also enables *re-use*.
-    *   Write one time, use many times.
 
 ## Define a function using `def` with a name, parameters, and a block of code.
 
@@ -237,3 +227,14 @@ average of actual values: 2.6666666666666665
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
+
+## Break programs down into functions to make them easier to understand.
+
+*   Human beings can only keep a few items in working memory at a time.
+*   Understand larger/more complicated ideas by understanding and combining pieces.
+    *   Components in a machine.
+    *   Lemmas when proving theorems.
+*   Functions serve the same purpose in programs.
+    *   *Encapsulate* complexity so that we can treat it as a single "thing".
+*   Also enables *re-use*.
+    *   Write one time, use many times.
