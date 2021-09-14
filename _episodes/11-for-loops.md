@@ -63,40 +63,8 @@ for number in [2, 3, 5]:
 *   The body, `print(number)`, specifies what to do for each value in the collection.
 *   The loop variable, `number`, is what changes for each *iteration* of the loop.
     *   The "current thing".
-
-## The first line of the `for` loop must end with a colon, and the body must be indented.
-
-*   The colon at the end of the first line signals the start of a *block* of statements.
-*   Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
+* The first line of the `for` loop must end with a colon, and the body must be indented.
     *   Any consistent indentation is legal, but almost everyone uses four spaces.
-
-~~~
-for number in [2, 3, 5]:
-print(number)
-~~~
-{: .language-python}
-~~~
-IndentationError: expected an indented block
-~~~
-{: .error}
-
-*   Indentation is always meaningful in Python.
-
-~~~
-firstName = "Jon"
-  lastName = "Smith"
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-7-f65f2962bf9c>", line 2
-    lastName = "Smith"
-    ^
-IndentationError: unexpected indent
-~~~
-{: .error}
-
-*   This error can be fixed by removing the extra spaces
-    at the beginning of the second line.
 
 ## Loop variables can be called anything.
 
@@ -152,91 +120,7 @@ a range is not a list: range(0, 3)
 ~~~
 {: .output}
 
-## The Accumulator pattern turns many values into one.
-
-*   A common pattern in programs is to:
-    1.  Initialize an *accumulator* variable to zero, the empty string, or the empty list.
-    2.  Update the variable with values from a collection.
-
-~~~
-# Sum the first 10 integers.
-total = 0
-for number in range(10):
-   total = total + (number + 1)
-print(total)
-~~~
-{: .language-python}
-~~~
-55
-~~~
-{: .output}
-
-*   Read `total = total + (number + 1)` as:
-    *   Add 1 to the current value of the loop variable `number`.
-    *   Add that to the current value of the accumulator variable `total`.
-    *   Assign that to `total`, replacing the current value.
-*   We have to add `number + 1` because `range` produces 0..9, not 1..10.
-
-> ## Classifying Errors
->
-> Is an indentation error a syntax error or a runtime error?
-> > ## Solution
-> > An IndentationError is a syntax error. Programs with syntax errors cannot be started.
-> > A program with a runtime error will start but an error will be thrown under certain conditions.
-> {: .solution}
-{: .challenge}
-
-> ## Tracing Execution
->
-> Create a table showing the numbers of the lines that are executed when this program runs,
-> and the values of the variables after each line is executed.
->
-> ~~~
-> total = 0
-> for char in "tin":
->     total = total + 1
-> ~~~
-> {: .language-python}
-> > ## Solution
-> >
-> > | Line no | Variables            |
-> > |---------|----------------------|
-> > | 1       | total = 0            |
-> > | 2       | total = 0 char = 't' |
-> > | 3       | total = 1 char = 't' |
-> > | 2       | total = 1 char = 'i' |
-> > | 3       | total = 2 char = 'i' |
-> > | 2       | total = 2 char = 'n' |
-> > | 3       | total = 3 char = 'n' |
-> {: .solution}
-{: .challenge}
-
-> ## Reversing a String
->
-> Fill in the blanks in the program below so that it prints "nit"
-> (the reverse of the original character string "tin").
->
-> ~~~
-> original = "tin"
-> result = ____
-> for char in original:
->     result = ____
-> print(result)
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > ~~~
-> > original = "tin"
-> > result = ""
-> > for char in original:
-> >     result = char + result
-> > print(result)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
-
-> ## Practice Accumulating
+> ## Practice Accumulating (demoed)
 >
 > Fill in the blanks in each of the programs below
 > to produce the indicated result.
@@ -258,59 +142,6 @@ print(total)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
->
-> ~~~
-> # List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
-> lengths = ____
-> for word in ["red", "green", "blue"]:
->     lengths.____(____)
-> print(lengths)
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > ~~~
-> > lengths = []
-> > for word in ["red", "green", "blue"]:
-> >     lengths.append(len(word))
-> > print(lengths)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
->
-> ~~~
-> # Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
-> words = ["red", "green", "blue"]
-> result = ____
-> for ____ in ____:
->     ____
-> print(result)
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > ~~~
-> > words = ["red", "green", "blue"]
-> > result = ""
-> > for word in words:
-> >     result = result + word
-> > print(result)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
->
-> __Create an acronym:__ Starting from the list `["red", "green", "blue"]`, create the acronym `"RGB"` using
-> a for loop.
-> 
-> __Hint:__ You may need to use a string method to properly format the acronym.
-> > ## Solution
-> > ~~~
-> > acronym = ""
-> > for word in ["red", "green", "blue"]:
-> >     acronym = acronym + word[0].upper()
-> > print(acronym)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
 
 > ## Cumulative Sum
 >
@@ -382,24 +213,3 @@ print(total)
 > {: .solution}
 {: .challenge}
 
-> ## Identifying Item Errors
->
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code, and read the error message. What type of error is it?
-> 3. Fix the error.
->
-> ~~~
-> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> print('My favorite season is ', seasons[4])
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > This list has 4 elements and the index to access the last element in the list is `3`.
-> > ~~~
-> > seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> > print('My favorite season is ', seasons[3])
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
