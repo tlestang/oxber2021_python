@@ -23,6 +23,100 @@ keypoints:
 - "Use `elif` to specify additional tests."
 - "Conditions are tested once, in order."
 ---
+
+## Python lists
+
+We create a list by putting values inside square brackets and
+separating the values with commas:
+
+~~~
+odds = [1, 3, 5, 7]
+print('odds are:', odds)
+~~~
+{: .language-python}
+
+~~~
+odds are: [1, 3, 5, 7]
+~~~
+{: .output}
+
+We can access elements of a list using indices -- numbered positions of elements in the list.
+These positions are numbered starting at 0, so the first element has an index of 0.
+
+~~~
+print('first element:', odds[0])
+print('last element:', odds[3])
+print('"-1" element:', odds[-1])
+~~~
+{: .language-python}
+
+~~~
+first element: 1
+last element: 7
+"-1" element: 7
+~~~
+{: .output}
+
+Yes, we can use negative numbers as indices in Python. When we do so, the index `-1` gives us the
+last element in the list, `-2` the second to last, and so on.
+Because of this, `odds[3]` and `odds[-1]` point to the same element here.
+
+There is one important difference between lists and strings:
+we can change the values in a list,
+but we cannot change individual characters in a string.
+For example:
+
+~~~
+names = ['Curie', 'Darwing', 'Turing']  # typo in Darwin's name
+print('names is originally:', names)
+names[1] = 'Darwin'  # correct the name
+print('final value of names:', names)
+~~~
+{: .language-python}
+
+~~~
+names is originally: ['Curie', 'Darwing', 'Turing']
+final value of names: ['Curie', 'Darwin', 'Turing']
+~~~
+{: .output}
+
+works, but:
+
+~~~
+name = 'Darwin'
+name[0] = 'd'
+~~~
+{: .language-python}
+
+~~~
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-8-220df48aeb2e> in <module>()
+      1 name = 'Darwin'
+----> 2 name[0] = 'd'
+
+TypeError: 'str' object does not support item assignment
+~~~
+{: .error}
+
+does not.
+
+## Nested lists
+
+~~~
+fields_and_names = [['Physics', Natural history', 'Computer Science'], ['Curie', 'Darwin', 'Turing']]  
+~~~
+{: .language-python}
+
+## Append to a list
+
+~~~
+l = [1, 2, 3]
+l.append("a string")
+print(l)
+~~~
+{: .language-python}
+
 ## A *for loop* executes commands once for each value in a collection.
 
 *   Doing calculations on the values in a list one by one
