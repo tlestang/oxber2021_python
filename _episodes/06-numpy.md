@@ -1,5 +1,5 @@
 ---
-title: Analyzing Patient Data
+title: Manipulating and visualising data with NumPy and Matplotlib
 teaching: 10
 exercises: 0
 questions:
@@ -379,65 +379,6 @@ matplotlib.pyplot.show()
 Here, we have put the average inflammation per day across all patients in the variable
 `ave_inflammation`, then asked `matplotlib.pyplot` to create and display a line graph of those
 values.  
-
-### Grouping plots
-You can group similar plots in a single figure using subplots.
-This script below uses a number of new commands. The function `matplotlib.pyplot.figure()`
-creates a space into which we will place all of our plots. The parameter `figsize`
-tells Python how big to make this space. Each subplot is placed into the figure using
-its `add_subplot` [method]({{ page.root }}/reference.html#method). The `add_subplot` method takes 3
-parameters. The first denotes how many total rows of subplots there are, the second parameter
-refers to the total number of subplot columns, and the final parameter denotes which subplot
-your variable is referencing (left-to-right, top-to-bottom). Each subplot is stored in a
-different variable (`axes1`, `axes2`, `axes3`). Once a subplot is created, the axes can
-be titled using the `set_xlabel()` command (or `set_ylabel()`).
-Here are our three plots side by side:
-
-~~~
-import numpy
-import matplotlib.pyplot
-
-data = numpy.loadtxt(fname='inflammation-01.csv', delimiter=',')
-
-fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))
-
-axes1 = fig.add_subplot(1, 3, 1)
-axes2 = fig.add_subplot(1, 3, 2)
-axes3 = fig.add_subplot(1, 3, 3)
-
-axes1.set_ylabel('average')
-axes1.plot(numpy.mean(data, axis=0))
-
-axes2.set_ylabel('max')
-axes2.plot(numpy.max(data, axis=0))
-
-axes3.set_ylabel('min')
-axes3.plot(numpy.min(data, axis=0))
-
-fig.tight_layout()
-
-matplotlib.pyplot.savefig('inflammation.png')
-matplotlib.pyplot.show()
-~~~
-{: .language-python}
-
-![Three line graphs showing the daily average, maximum and minimum inflammation over a 40-day period.](../fig/inflammation-01-group-plot.svg)
-
-The [call]({{ page.root }}/reference.html#function-call) to `loadtxt` reads our data,
-and the rest of the program tells the plotting library
-how large we want the figure to be,
-that we're creating three subplots,
-what to draw for each one,
-and that we want a tight layout.
-(If we leave out that call to `fig.tight_layout()`,
-the graphs will actually be squeezed together more closely.)
-
-The call to `savefig` stores the plot as a graphics file. This can be
-a convenient way to store your plots for use in other documents, web
-pages etc. The graphics format is automatically determined by
-Matplotlib from the file name ending we specify; here PNG from
-'inflammation.png'. Matplotlib supports many different graphics
-formats, including SVG, PDF, and JPEG.
 
 > ## Importing libraries with shortcuts
 >
