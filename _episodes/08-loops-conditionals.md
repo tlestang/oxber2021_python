@@ -1,5 +1,5 @@
 ---
-title: "For Loops"
+title: "Loops and conditional statements"
 teaching: 7
 exercises: 3
 questions:
@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Explain what for loops are normally used for."
 - "Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."
-- "Write simple for loops, e.g. the aggregate values.
+- "Write simple for loops, e.g. the aggregate values."
 - "Correctly write programs that use if and else statements and simple logial expressions."
 keypoints:
 - "A *for loop* executes commands once for each value in a collection."
